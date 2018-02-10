@@ -1,0 +1,4 @@
+﻿  1-2.cpp
+c:\users\fhm\desktop\absolute-cplus-plus\chapter-1\1-2.cpp(30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  chapter-1.vcxproj -> C:\Users\FHM\Desktop\absolute-cplus-plus\Debug\chapter-1.exe
+  chapter-1.vcxproj -> C:\Users\FHM\Desktop\absolute-cplus-plus\Debug\chapter-1.pdb (Partial PDB)
