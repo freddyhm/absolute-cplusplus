@@ -17,7 +17,6 @@ int main()
 	int numOfSodaCans = 0;
 	double lethalHumanAmt = 0.0;
 
-	// prompt user for info needed to calculate lethal amount of sweetener for human
 	cout << "please enter the amount of sweetener that is lethal for a mouse (kg):";
 	cin >> lethalSweetAmtMouse;
 	cout << "weight of the mouse (kg):";

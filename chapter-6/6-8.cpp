@@ -2,13 +2,6 @@
 	Name: Money
 	Author: Freddy Hidalgo-Monchez
 	Description: Stores a monetary amount
-	Requirements:	- Must be a class
-					- one private double variable to store the number 
-					  of dollars and cents
-					- Accessor and mutator functions
-					- Function that returns monetary amount as 
-					  a double
-					- Test with at least two different Money objects
 */
 
 #include <iostream>
@@ -20,21 +13,15 @@ class Money
 {
 public:
 	
-	// postcondition: dollar amount is returned
 	int getDollars();
-
-	// postcondition: cents amont is returned
 	int getCents();
 	
 	// precondition: dollar >= 0 
-	// postcondition: the dollar amount is set according to argument
 	void setDollars(int newDollars);
 
 	// precondition: cents >= 0
-	// postcondition: the cents amount is set according to argument
 	void setCents(int newCents);
 
-	// postcondition: the total amount of money is returned
 	double getTotal();
 private:
 	double amount = 0.0;

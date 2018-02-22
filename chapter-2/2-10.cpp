@@ -15,11 +15,9 @@ int main()
 	string text;
 	string test;
 
-	// read in text
 	fstream inputStream;
 	inputStream.open("test.txt");
 
-	// print out every occurrence of the word hate with the word love
 	if (inputStream.is_open()) {
 		while (inputStream >> text) {
 			if (text == "hate") {

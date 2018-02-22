@@ -11,6 +11,7 @@ using namespace std;
 const double LITER_TO_GALLON = 0.264179;
 
 double milesPerGallon(double liters, double miles);
+// precondition: liters >= 0 && miles >= 0 
 
 int main()
 {
@@ -20,21 +21,18 @@ int main()
 
 	do
 	{
-		// input number of liters of gasoline consumed by car
 		cout << "Please enter the number of liters of gasoline you've consumed: ";
 		cin >> liters;
-
-		// input number of miles traveled by the car
 		cout << "Please enter the the number of miles traveled: ";
 		cin >> miles;
 
-		// output the number of miles per gallon (MPG) delivered
 		cout.precision(2);
 		cout << "Your car's miles per gallon (MPG) is: " << milesPerGallon(liters, miles) << endl;
 		system("pause");
 
 		cout << "Restart calculation? (Y/N): ";
 		cin >> restart;
+
 	} while (restart == 'Y' || restart == 'y');
 
 	return 0;
@@ -42,7 +40,6 @@ int main()
 
 double milesPerGallon(double liters, double miles) 
 {
-	// Convert liters into gallons
 	double gallons = liters * LITER_TO_GALLON;
 	
 	return miles / gallons;

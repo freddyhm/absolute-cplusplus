@@ -2,12 +2,6 @@
 	Name: Anagrams
 	Author: Freddy Hidalgo-Monchez
 	Description: Checks if two strings are anagrams
-	Requirements: 	- Must be a function
-					- Cannot be case-sensitive
-					- Disregard punctuations or spaces
-					- Anagrams: two strings that have the same
-					  letters. They can be rearranged to form
-					  each other
 */
 
 #include <iostream>

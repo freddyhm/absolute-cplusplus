@@ -2,14 +2,6 @@
 // Name			: 4-1.cpp
 // Author		: Freddy Hidalgo-Monchez
 // Description	: Converts 24-hour notation to 12-hour notation
-// Input		: 24 hour time
-// Output		: Corresponding 12-hour time, with AM/PM indication
-// Required		:	- 3 functions: input, conversion, and output.
-//					- Keep AM / PM information in a char variable
-//					- Allow repeat at user's option
-// Notes		: Conversion function will have a char reference 
-//				  parameter to return whether the time is AM / PM.Other
-//				  parameters are required.
 //============================================================================
 
 #include <iostream>
@@ -47,11 +39,6 @@ int main()
 	Postcondition:	User is prompted for time in 24-hour format:
 					HH:MM, where 0 <= HH < 24, 0 <= MM < 60.
 					hours is set to HH, minutes is set to MM.
-
-	KNOWN BUG: NO CHECKING IS DONE ON INPUT FORMAT. Omitting
-	the “:” (colon) from the input format “eats” one character
-	from the minutes data, and silently gives erroneous
-	results.
 */
 void input(int& hours24, int& minutes)
 {
