@@ -13,22 +13,67 @@ class Student
 private:
 	string name;
 	int numClasses;
-	string classList[3];
+	string *classList;
 public:
-	void Student::setClassList(string classList[], int classListSize);
+	Student();
+	void setName(string studentName);
+	string getName();
+	void setNumClasses(int numClasses);
+	int getNumClasses();
+	void setClassList(string *classList, int classListSize);
 	// precondition: classListSize > 0 && classList cannot be empty
-
-	void Student::printClassList();
-	void Student::inputClassList();
+	void printClassList();
+	void inputClassList();
+	void reset();
+	~Student();
 };
+
 
 int main()
 {
+	string name = "";
 	Student student1;
+
+	cout << "What is your name?: " << endl;
+	getline(cin, name);
+	student1.setName(name);
+	cout << "My name is: " << student1.getName() << endl;
+	student1.inputClassList();
+	cout << "You are taking: " << student1.getNumClasses() << " classes:" << endl;
+	student1.printClassList();
+	student1.reset();
+	cout << "Resetting...";
+	student1.printClassList();
 	student1.inputClassList();
 	student1.printClassList();
 
 	system("pause");
+}
+
+Student::Student()
+{	
+	classList = NULL;
+	numClasses = 0;
+}
+
+int Student::getNumClasses()
+{
+	return numClasses;
+}
+
+void Student::setNumClasses(int numClasses)
+{
+	this->numClasses = numClasses;
+}
+
+void Student::setName(string studentName)
+{
+	name = studentName;
+}
+
+string Student::getName()
+{
+	return name;
 }
 
 void Student::inputClassList()
@@ -39,23 +84,22 @@ void Student::inputClassList()
 	cin >> classListSize;
 	string *classes = new string[classListSize];
 
+	cout << "Please enter your classes:\n";
 	string className = "";
 	int i = 0;
 
-	while (className.empty())
+	while (i < classListSize)
 	{
 		getline(cin, className);
-		classes[i] = className;
-		i++;
+
+		// getline will immediately get the line whether that's blank or not
+		// makes sure we only get names and skip blank lines
+		if (!className.empty())
+		{
+			classes[i] = className;
+			i++;
+		}	
 	}
-
-
-	/*
-
-	for (int i = 0; i < classListSize; i++)
-	{
-		getline(cin, classes[i]);
-	} */
 
 	setClassList(classes, classListSize);
 
@@ -63,22 +107,40 @@ void Student::inputClassList()
 }
 
 
-void Student::setClassList(string classes[], int classListSize)
+void Student::setClassList(string *classList, int classListSize)
 {
+	if (!this->classList || numClasses != classListSize) {
+		setNumClasses(classListSize);
+		this->classList = new string[classListSize];
+	}
+	
 	for (int i = 0; i < classListSize; i++)
 	{
-		classList[i] = classes[i];
+		this->classList[i] = classList[i];
 	}
 }
 
 void Student::printClassList()
 {
-	int size = (sizeof(classList)  / sizeof(classList[0]));
-
 	cout << "Your classes are:" << endl;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < numClasses; i++)
 	{
 		cout << classList[i] << endl;
 	}
+}
+
+void Student::reset()
+{
+	/*	important to set classList to NULL so we can check
+		for it later when initializing */
+
+	delete[]classList;
+	classList = NULL;
+	numClasses = 0;
+}
+
+Student::~Student()
+{
+	delete[]classList;
 }
